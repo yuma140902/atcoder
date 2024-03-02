@@ -22,17 +22,6 @@ test-suite = "{{ manifest_dir }}/testcases/{{ bin_alias }}.yml"
 
 [template]
 src = '''
-#[allow(unused_imports)]
-use proconio::input;
-
-#[allow(unused_macros)]
-#[cfg(debug_assertions)]
-macro_rules! debug (($arg:expr) => (dbg!($arg)));
-
-#[allow(unused_macros)]
-#[cfg(not(debug_assertions))]
-macro_rules! debug (($arg:expr) => ($arg));
-
 fn main() {
     todo!();
 }
@@ -143,7 +132,11 @@ toolchain = "1.42.0"
 # Defaults to `"dev"`.
 #profile = "dev"
 
-#[submit.transpile]
+[submit]
+kind = "file"
+path = "{{ src_path }}"
+language_id = "4050"
+#[submit]
 #kind = "command"
 #args = ["cargo", "equip", "--exclude-atcoder-crates", "--resolve-cfgs", "--remove", "docs", "--minify", "libs", "--rustfmt", "--check", "--bin", "{{ bin_name }}"]
-##language_id = ""
+#language_id = "4050"
