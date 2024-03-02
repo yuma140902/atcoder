@@ -1,49 +1,37 @@
-#include <bits/stdc++.h>
-#include <cstdio>
+#include<bits/stdc++.h>
 using namespace std;
-typedef long long int ll; // Long long
 
-#define vi vector<int>
-#define vii vector<vector<int> >
-#define vi_(n) vector<int>((n))
-#define vii_(n,m) vector<vector<int> >((n), vector<int>((m)))
-#define vi_def(n, def) vector<int>((n), (def))
-#define vii_def(n, m, def) vector<vector<int> >((n), vector<int>((m), (def)))
-
-#define rep(i, n) for(int i=0; i < (n); ++i)
-#define per(i, n) for(int i=(n)-1 i >= 0; --i)
-
-int main(){
-	int N;
-	cin >> N;
-	vi A(N+1);
-	vi B(N);
-	vi C = vi_def(N+1, 0);
-
-	rep(i, N+1){
-		int a;
-		cin >> a;
-		A[i] = a;
-	}
-	rep(i, N){
-		int b;
-		cin >> b;
-		B[i] = b;
-	}
-
-	rep(i, N){
-		int tmp = min(A[i]-C[i], B[i]);
-		C[i] += tmp;
-		B[i] -= tmp;
-		C[i+1] += min(A[i+1]-C[i+1], B[i]);
-	}
-
-	int ans = 0;
-	rep(i, N+1){
-		ans += C[i];
-	}
-
-	cout << ans << endl;
-
+int main() {
+  int N;
+  cin >> N;
+  vector<int64_t> A(N+1);
+  vector<int64_t> B(N);
+  for(int i=0; i<N+1; ++i) cin >> A[i];
+  for(int i=0; i<N; ++i) cin >> B[i];
+  
+  int64_t cnt = 0;
+  for(int i=0; i<N; ++i) {
+    if(A[i] <= B[i]) {
+      B[i] -= A[i];
+      cnt += A[i];
+      A[i] = 0;
+    }
+    else {
+      A[i] -= B[i];
+      cnt += B[i];
+      B[i] = 0;
+    }
+    if(A[i+1] <= B[i]) {
+      B[i] -= A[i+1];
+      cnt += A[i+1];
+      A[i+1] = 0;
+    }
+    else {
+      A[i+1] -= B[i];
+      cnt += B[i];
+      B[i] = 0;
+    }
+  }
+  
+  cout << cnt << endl;
 }
-
