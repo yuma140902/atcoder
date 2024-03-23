@@ -1,0 +1,82 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      5
+      00011
+      3 9 2 6 4
+    out: |
+      7
+  - name: sample2
+    in: |
+      4
+      1001
+      1 2 3 4
+    out: |
+      0
+  - name: sample3
+    in: |
+      11
+      11111100111
+      512298012 821282085 543342199 868532399 690830957 973970164 928915367 954764623 923012648 540375785 925723427
+    out: |
+      2286846953
+  - name: my1
+    in: |
+      3
+      101
+      1 10 100
+    out: |
+      1
+  - name: my2
+    in: |
+      3
+      100
+      1 10 100
+    out: |
+      0
+  - name: my4
+    in: |
+      2
+      10
+      10 1
+    out: |
+      1
+  - name: my5
+    in: |
+      2
+      00
+      10 1
+    out: |
+      0
+  - name: my6
+    in: |
+      5
+      00101
+      1 10 100 1000 10000
+    out: |
+      0
+  - name: my7
+    in: |
+      5
+      10101
+      1 10 100 1000 10000
+    out: |
+      1
+  - name: my8
+    in: |
+      5
+      11111
+      1 10 100 1000 10000
+    out: |
+      101
+
+extend:
+  - type: Text
+    path: "./d"
+    in: /in/*.txt
+    out: /out/*.txt
