@@ -27,7 +27,7 @@ docker build -t local/atcoder cpp-oj/docker/
 コンテナを実行する
 
 ```sh
-docker run -v .:/home/arch/atcoder -it --rm local/atcoder
+docker run -v .:/home/arch/atcoder -it local/atcoder
 ```
 
 ログインする(初回のみ)
