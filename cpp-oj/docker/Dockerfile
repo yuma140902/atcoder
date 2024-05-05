@@ -3,7 +3,7 @@ FROM archlinux/archlinux
 RUN pacman -Syu --noconfirm \
 &&  pacman -S --noconfirm base-devel git unzip gcc12 clang16 pkg-config sudo \
     curl tmux zsh fzf zoxide rustup fd ripgrep bat lsd neovim tig make \
-    python-pipx boost gmp eigen
+    python-pipx boost gmp eigen trash-cli github-cli
 
 # ac-libraryをインストール
 RUN mkdir -p /opt/ac-library \
@@ -53,10 +53,6 @@ RUN git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm \
 
 # zinitのプラグインをインストールする
 RUN /bin/zsh -c "source $HOME/.zshrc"
-
-USER root
-RUN pacman -S --noconfirm trash-cli
-USER arch
 
 # atcoderリポジトリのクローン
 RUN git clone https://github.com/yuma140902/atcoder $HOME/atcoder
