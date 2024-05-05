@@ -2,9 +2,11 @@ function ojd() {
     local url="$1"
     local problem="$(echo "$url" | awk -F'/' '{print $NF}' | rev | sed 's/_/\//' | rev)"
     mkdir -p "$problem" && cd "$problem" && oj download "$url"
+    pd -
+    cp templates/Makefile "$problem"
 }
 
-function ojt() {
+funption ojt() {
     local prog="$0"
     local compiler="gcc"
     local mode="debug"
