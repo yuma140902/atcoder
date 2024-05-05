@@ -56,7 +56,10 @@ RUN /bin/zsh -c "source $HOME/.zshrc"
 
 # atcoderリポジトリのクローン
 RUN git clone https://github.com/yuma140902/atcoder $HOME/atcoder
-WORKDIR /$HOME/atcoder/
+WORKDIR $HOME/atcoder/
+
+COPY scripts.zsh $HOME/scripts.zsh
 
 RUN echo "export TERM=screen" >> "$HOME/.zshrc"
+RUN echo "[ -f ~/scripts.zsh ] && source ~/scripts.zsh" >> "$HOME/.zshrc"
 CMD tmux
