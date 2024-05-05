@@ -5,6 +5,7 @@ function ojd() {
     cd -
     cp template/Makefile "$problem"
     cp template/main.cpp "$problem"
+    cp template/compile_flags.txt "$problem"
     cd "$problem"
 }
 
