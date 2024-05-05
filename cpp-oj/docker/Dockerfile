@@ -58,6 +58,14 @@ RUN /bin/zsh -c "source $HOME/.zshrc"
 RUN git clone https://github.com/yuma140902/atcoder $HOME/atcoder
 WORKDIR $HOME/atcoder/cpp-oj
 
+VOLUME ["/home/arch/.local/share/online-judge-tools"]
+RUN mkdir -p /home/arch/.local/share/online-judge-tools \
+&&  chown -R arch:arch /home/arch/.local/share/online-judge-tools
+
+VOLUME ["/home/arch/.cache/online-judge-tools"]
+RUN mkdir -p /home/arch/.cache/online-judge-tools \
+&&  chown -R arch:arch /home/arch/.cache/online-judge-tools
+
 COPY scripts.zsh $HOME/scripts.zsh
 
 RUN echo "export TERM=screen" >> "$HOME/.zshrc"

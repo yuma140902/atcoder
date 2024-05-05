@@ -27,7 +27,7 @@ docker build -t local/atcoder cpp-oj/docker/
 コンテナを実行する
 
 ```sh
-docker run -v .:/home/arch/atcoder -it local/atcoder
+docker run -v oj-local:/home/arch/.local/share/online-judge-tools -v oj-cache:/home/arch/.cache/online-judge-tools -v .:/home/arch/atcoder --rm -it local/atcoder
 ```
 
 ログインする(初回のみ)
