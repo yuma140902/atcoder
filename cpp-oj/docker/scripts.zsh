@@ -1,6 +1,6 @@
 function ojd() {
     local url="$1"
-    local problem="$(echo '$url' | awk -F'/' '{print $NF}' | rev | sed 's/_/\//' | rev)"
+    local problem="$(echo "$url" | awk -F'/' '{print $NF}' | rev | sed 's/_/\//' | rev)"
     mkdir -p "$problem" && cd "$problem" && oj download "$url"
     cd -
     cp template/Makefile "$problem"
@@ -14,5 +14,5 @@ funption ojt() {
 }
 
 funption ojto() {
-    make $1 && oj t -c "./$1
+    make $1 && oj t -c "./$1"
 }
