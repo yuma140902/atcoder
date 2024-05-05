@@ -4,6 +4,8 @@ function ojd() {
     mkdir -p "$problem" && cd "$problem" && oj download "$url"
     cd -
     cp template/Makefile "$problem"
+    cp template/main.cpp "$problem"
+    cd "$problem"
 }
 
 funption ojt() {

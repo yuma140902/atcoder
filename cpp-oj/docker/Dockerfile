@@ -54,9 +54,13 @@ RUN git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm \
 # zinitのプラグインをインストールする
 RUN /bin/zsh -c "source $HOME/.zshrc"
 
+USER root
+RUN pacman -S --noconfirm trash-cli
+USER arch
+
 # atcoderリポジトリのクローン
 RUN git clone https://github.com/yuma140902/atcoder $HOME/atcoder
-WORKDIR $HOME/atcoder/
+WORKDIR $HOME/atcoder/cpp-oj
 
 COPY scripts.zsh $HOME/scripts.zsh
 
