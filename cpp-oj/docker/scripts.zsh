@@ -3,7 +3,7 @@ function ojd() {
     local problem="$(echo "$url" | awk -F'/' '{print $NF}' | rev | sed 's/_/\//' | rev)"
     mkdir -p "$problem" && cd "$problem" && oj download "$url"
     cd -
-    cp templates/Makefile "$problem"
+    cp template/Makefile "$problem"
 }
 
 funption ojt() {
