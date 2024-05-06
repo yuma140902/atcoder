@@ -42,8 +42,8 @@ RUN mkdir -p $HOME/repos/ \
 &&  ./dotfiles install tmux
 
 # neovimのプラグインをインストールする
-RUN nvim -c "Lazy restore" -c "qa!" \
-&&  nvim -c "MasonInstall clangd typos-lsp" -c "qa!"
+RUN nvim --headless "+Lazy! restore" +qa \
+&&  nvim --headless "+MasonInstall clangd typos-lsp" +qa
 
 # tmuxのプラグインをインストールする
 ENV TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins/tpm
