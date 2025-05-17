@@ -22,11 +22,11 @@ class TestCase:
             return True
         else:
             print("test case failed", file=sys.stderr)
-            diffs = difflib.context_diff(
-                expected, actual, fromfile="expected.out", tofile="actual.out"
+            split = lambda text: list(map(lambda s : s + '\n', text.split('\n')))
+            diffs = difflib.unified_diff(
+                split(expected), split(actual), fromfile="expected.out", tofile="actual.out"
             )
-            sys.stderr.writelines(diffs)
-            print("", file=sys.stderr)
+            sys.stdout.writelines(diffs)
             return False
 
 
