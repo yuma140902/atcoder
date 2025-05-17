@@ -27,6 +27,7 @@
 				packages = with pkgs; [
 					llvmPackages_16.libstdcxxClang
 					gcc12
+					ac-library
 					bear
 					rust-toolchain
 				];

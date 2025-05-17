@@ -8,6 +8,10 @@
 #include <utility>
 #include <vector>
 
+#if __has_include(<atcoder/all>)
+#include <atcoder/all>
+#endif
+
 // NOLINTBEGIN(misc-unused-using-decls)
 using ::std::ranges::views::iota;
 // NOLINTEND(misc-unused-using-decls)
