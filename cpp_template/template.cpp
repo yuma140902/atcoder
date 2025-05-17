@@ -14,6 +14,7 @@
 
 // NOLINTBEGIN(misc-unused-using-decls)
 using std::cerr;
+using std::cin;
 using std::cout;
 using std::pair;
 using std::string;
