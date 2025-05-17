@@ -30,6 +30,7 @@
 					ac-library
 					bear
 					rust-toolchain
+					python312Full
 				];
 				hardeningDisable = [ "fortify" ];
 				pure=true;
