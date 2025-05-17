@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <climits>
 #include <cmath>
-#include <concepts>
 #include <cstddef>
 #include <cstdint>
 #include <iostream>
@@ -39,17 +38,17 @@ using f32 = float;
 using f64 = double;
 
 [[maybe_unused]] constexpr char nl = '\n';
-[[maybe_unused]] constexpr i32 INF = INT_MAX / 2;
-[[maybe_unused]] constexpr i64 INFL = LONG_MAX / 2;
+[[maybe_unused]] constexpr i32 INF = INT_MAX - INT_MAX / 8;
+[[maybe_unused]] constexpr i64 INFL = LONG_MAX - LONG_MAX / 8;
 [[maybe_unused]] constexpr f64 EPS = 1e-10;
 
-template <std::floating_point T, std::floating_point S>
+template <class T, class S>
 [[nodiscard]]
 constexpr inline auto fequal(T f, S g) -> bool {
 	return std::abs(f - g) < EPS;
 }
 
-template <std::totally_ordered T>
+template <class T>
 constexpr inline auto assign_max(T& lhs, T rhs) -> bool {
 	if (lhs < rhs) {
 		lhs = rhs;
@@ -58,7 +57,7 @@ constexpr inline auto assign_max(T& lhs, T rhs) -> bool {
 	return false;
 }
 
-template <std::totally_ordered T>
+template <class T>
 constexpr inline auto assign_min(T& lhs, T rhs) -> bool {
 	if (lhs > rhs) {
 		lhs = rhs;
@@ -86,7 +85,7 @@ struct newtype {
 		return lhs.value op rhs.value;                \
 	}
 
-[[maybe_unused]] constexpr std::array<std::pair<i32, i32>, 4> around{
+[[maybe_unused]] constexpr std::array<std::pair<i32, i32>, 4> AROUND{
     std::pair{-1, 0}, std::pair{1, 0}, std::pair{0, -1}, std::pair{0, 1}};
 
 }  // namespace util
