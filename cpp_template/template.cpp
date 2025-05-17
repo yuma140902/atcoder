@@ -9,13 +9,18 @@
 #include <vector>
 
 #if __has_include(<atcoder/all>)
-#include <atcoder/all>
+// #include <atcoder/all>
 #endif
 
 // NOLINTBEGIN(misc-unused-using-decls)
-using ::std::ranges::views::iota;
+using std::cerr;
+using std::cout;
+using std::pair;
+using std::string;
+using std::tuple;
+using std::vector;
+using std::ranges::views::iota;
 // NOLINTEND(misc-unused-using-decls)
-using namespace ::std;
 namespace views = ::std::ranges::views;	 // NOLINT(misc-unused-alias-decls)
 
 #define debug(x)                                                        \
