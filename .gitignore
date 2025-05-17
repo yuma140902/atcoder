@@ -1,3 +1,4 @@
 /.cache
 /cpp_template/.cache
+/rust_template/target
 a.out

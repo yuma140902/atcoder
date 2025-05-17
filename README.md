@@ -24,3 +24,10 @@ cd cpp_template/
 `MODE` を省略すると `clang` が指定されたものとみなされる。
 
 `a.out` が出力されるので `./a.out` で実行する。
+
+### Rust
+
+```sh
+cd rust_template/
+cargo run --release --bin <バイナリ名>
+```
